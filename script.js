@@ -89,7 +89,6 @@ contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData);
 
     // Get the submit button
     const submitBtn = contactForm.querySelector('button[type="submit"]');
@@ -99,16 +98,22 @@ contactForm.addEventListener('submit', async (e) => {
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
 
-    // Simulate form submission (replace with actual API endpoint)
     try {
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            body: formData,
+        });
 
-        // Success state
-        submitBtn.textContent = 'Message Sent!';
-        submitBtn.style.background = 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)';
+        const result = await response.json();
 
-        // Reset form
-        contactForm.reset();
+        if (response.ok) {
+            // Success state
+            submitBtn.textContent = 'Message Sent!';
+            submitBtn.style.background = 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)';
+            contactForm.reset();
+        } else {
+            throw new Error(result.error || 'Failed to send');
+        }
 
         // Reset button after delay
         setTimeout(() => {

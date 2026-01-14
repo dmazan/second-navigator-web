@@ -1,5 +1,8 @@
 {
   "name": "second-navigator",
   "compatibility_date": "2026-01-14",
-  "pages_build_output_dir": "./"
+  "pages_build_output_dir": "./",
+  "vars": {
+	  "RESEND_API_KEY": ""
+  }
 }

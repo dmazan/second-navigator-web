@@ -9,6 +9,14 @@ export async function onRequestPost(context) {
   };
 
   try {
+    // Check if API key is configured
+    if (!env.RESEND_API_KEY) {
+      return new Response(
+        JSON.stringify({ error: 'RESEND_API_KEY not configured' }),
+        { status: 500, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
+      );
+    }
+
     const formData = await request.formData();
     const name = formData.get('name');
     const email = formData.get('email');
@@ -48,9 +56,8 @@ export async function onRequestPost(context) {
 
     if (!resendResponse.ok) {
       const errorData = await resendResponse.json();
-      console.error('Resend error:', errorData);
       return new Response(
-        JSON.stringify({ error: 'Failed to send email' }),
+        JSON.stringify({ error: 'Resend API error', details: errorData }),
         { status: 500, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
       );
     }
@@ -61,9 +68,8 @@ export async function onRequestPost(context) {
     );
 
   } catch (error) {
-    console.error('Error:', error);
     return new Response(
-      JSON.stringify({ error: 'Internal server error' }),
+      JSON.stringify({ error: 'Internal server error', details: error.message }),
       { status: 500, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
     );
   }

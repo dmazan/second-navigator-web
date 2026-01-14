@@ -54,7 +54,17 @@
             <div class="drone-path">
                 <svg viewBox="0 0 400 300" class="path-svg">
                     <path class="flight-path" d="M50,250 Q100,100 200,150 T350,50" />
-                    <circle class="drone-dot" cx="50" cy="250" r="6" />
+                    <g class="trail-dots">
+                        <circle class="trail-dot dot-1" r="1.5" />
+                        <circle class="trail-dot dot-2" r="1.5" />
+                        <circle class="trail-dot dot-3" r="1.5" />
+                        <circle class="trail-dot dot-4" r="1.5" />
+                        <circle class="trail-dot dot-5" r="1.5" />
+                        <circle class="trail-dot dot-6" r="1.5" />
+                    </g>
+                    <g class="drone-arrow">
+                        <polygon points="0,-8 12,0 0,8 3,0" fill="currentColor" />
+                    </g>
                 </svg>
             </div>
         </div>

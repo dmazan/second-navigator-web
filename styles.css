@@ -296,9 +296,63 @@ img {
     animation: dash 20s linear infinite;
 }
 
-.drone-dot {
-    fill: var(--color-accent);
-    animation: fly 8s ease-in-out infinite;
+.trail-dot {
+    fill: #9B2D9B;
+    animation: flyDots 9s linear infinite, fadeDots 9s linear infinite;
+}
+
+.dot-1 { animation-delay: 0.15s; }
+.dot-2 { animation-delay: 0.3s; }
+.dot-3 { animation-delay: 0.45s; }
+.dot-4 { animation-delay: 0.6s; }
+.dot-5 { animation-delay: 0.75s; }
+.dot-6 { animation-delay: 0.9s; }
+
+@keyframes flyDots {
+    0%, 89%, 100% {
+        cx: 50;
+        cy: 250;
+    }
+    11% {
+        cx: 95;
+        cy: 170;
+    }
+    22% {
+        cx: 145;
+        cy: 115;
+    }
+    33% {
+        cx: 195;
+        cy: 135;
+    }
+    44% {
+        cx: 245;
+        cy: 155;
+    }
+    55% {
+        cx: 280;
+        cy: 130;
+    }
+    66% {
+        cx: 315;
+        cy: 85;
+    }
+    77% {
+        cx: 345;
+        cy: 55;
+    }
+}
+
+@keyframes fadeDots {
+    0% { opacity: 0.7; }
+    72% { opacity: 0.7; }
+    78%, 88% { opacity: 0; }
+    100% { opacity: 0.7; }
+}
+
+.drone-arrow {
+    color: #9B2D9B;
+    animation: fly 9s linear infinite, fadeArrow 9s linear infinite;
 }
 
 @keyframes dash {
@@ -308,22 +362,37 @@ img {
 }
 
 @keyframes fly {
-    0%, 100% {
-        cx: 50;
-        cy: 250;
+    0%, 89%, 100% {
+        transform: translate(50px, 250px) rotate(-60deg);
     }
-    25% {
-        cx: 150;
-        cy: 120;
+    11% {
+        transform: translate(95px, 170px) rotate(-55deg);
     }
-    50% {
-        cx: 250;
-        cy: 160;
+    22% {
+        transform: translate(145px, 115px) rotate(-25deg);
     }
-    75% {
-        cx: 320;
-        cy: 80;
+    33% {
+        transform: translate(195px, 135px) rotate(20deg);
     }
+    44% {
+        transform: translate(245px, 155px) rotate(10deg);
+    }
+    55% {
+        transform: translate(280px, 130px) rotate(-25deg);
+    }
+    66% {
+        transform: translate(315px, 85px) rotate(-35deg);
+    }
+    77% {
+        transform: translate(345px, 55px) rotate(-40deg);
+    }
+}
+
+@keyframes fadeArrow {
+    0% { opacity: 1; }
+    72% { opacity: 1; }
+    78%, 88% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 /* ===== Products Section ===== */

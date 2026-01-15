@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#9B2D9B"/>
+    </linearGradient>
+  </defs>
+  <!-- Paper airplane arrow -->
+  <path d="M4,28 Q8,12 16,16 T28,4" stroke="url(#grad)" stroke-width="2" stroke-dasharray="3 4" fill="none" stroke-linecap="round"/>
+  <polygon points="28,4 20,6 26,12" fill="#9B2D9B"/>
+</svg>

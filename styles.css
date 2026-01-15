@@ -297,7 +297,7 @@ img {
 }
 
 .trail-dot {
-    fill: #9B2D9B;
+    fill: #B83DB8;
     animation: flyDots 9s linear infinite, fadeDots 9s linear infinite;
 }
 
@@ -351,7 +351,7 @@ img {
 }
 
 .drone-arrow {
-    color: #9B2D9B;
+    color: #B83DB8;
     animation: fly 9s linear infinite, fadeArrow 9s linear infinite;
 }
 
